@@ -1,0 +1,16 @@
+{
+  "name": "davekit",
+  "version": "1.0.0",
+  "description": "Front-end web dev kit",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Kwakernaak",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-serve": "^1.4.0"
+  }
+}
