@@ -1,0 +1,8 @@
+Options +Indexes
+
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ index.html?url=$1 [L]

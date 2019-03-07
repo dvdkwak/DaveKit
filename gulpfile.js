@@ -1,43 +1,15 @@
-var gulp = require('gulp');
 const { src, dest, parallel, watch, series } = require("gulp");
 const fs = require("fs");
-var browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create();
 
-// Static server
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./app"
-        }
-    });
-});
-
-// updating the index file
-function updateRoutes(cb)
+// Static Server
+function gulpServer(cb)
 {
-  return src("routes.php")
-    .pipe(dest("app"));
-}
-
-// updating the models
-function updateModels()
-{
-  return src("./models/**/*.php")
-    .pipe(dest("app/sys/models"));
-}
-
-// updating the views
-function updateViews()
-{
-  return src("./looks/**/*.php")
-    .pipe(dest("app/sys/views"));
-}
-
-// updating the controllers
-function updateControllers()
-{
-  return src("./controllers/**/*.php")
-    .pipe(dest("app/sys/controllers"));
+  browserSync.init({
+    server:{
+      baseDir: "./app"
+    }
+  });
 }
 
 // updating the javascript
@@ -47,6 +19,7 @@ function updateJavascript()
     .pipe(dest("app/js"));
 }
 
+// message the display the update has been finished
 function message(cb)
 {
   console.log("\n ____ ** FINISHED UPDATE ** ____\n");
@@ -62,23 +35,15 @@ function container(cb)
          "./controllers/**/*.php",
          "./javascript/**/*.js"],
          series(
-           parallel(
-             updateRoutes,
-             updateModels,
-             updateViews,
-             updateControllers,
-             updateJavascript
-           ),
+           updateJavascript,
            message
          )
        );
   cb();
 }
 
-exports.update = parallel( updateRoutes,
-                           updateModels,
-                           updateViews,
-                           updateControllers,
-                           updateJavascript
+// default to crop and compile all files
+exports.update = parallel( updateJavascript
                           );
+exports.serve = gulpServer;
 exports.default = container;
