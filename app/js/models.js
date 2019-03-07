@@ -1,0 +1,1 @@
+class Test{constructor(){this.timer=new Date}testMessage(){alert("test")}}

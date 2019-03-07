@@ -1,0 +1,39 @@
+body
+  background-color: $primary
+  overflow: hidden
+
+  h1
+    color: white
+    font-family: 'ZCOOL QingKe HuangYou', cursive
+    font-size: 64px
+    margin: 100px auto
+    text-align: center
+
+  .triangle
+    position: absolute
+    width: 0
+    height: 0
+    bottom: -70px
+    left: -150px
+    border-left: 200px solid transparent
+    border-right: 200px solid transparent
+    border-bottom: 330px solid $secondary
+
+  .triangle_container
+    position: relative
+    height: 100px
+    width: 100px
+    margin: 200px auto
+    padding: 0
+    animation-name: rotate
+    animation-duration: 20s
+    animation-iteration-count: infinite
+    animation-timing-function: linear
+
+
+
+@keyframes rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
