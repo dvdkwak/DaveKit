@@ -60,6 +60,18 @@ function updateSass()
     .pipe(dest('app/src'));
 }
 
+function updateLibJs()
+{
+  return src('./lib/**/*.js')
+    .pipe(dest('app/lib'));
+}
+
+function updateLibCss()
+{
+  return src('./lib/**/*.css')
+    .pipe(dest('app/lib'));
+}
+
 // reloadBrowsers to reload all connected browsers
 function reloadBrowsers(cb)
 {
@@ -91,6 +103,8 @@ function container(cb)
            updateModels,
            updateFunctions,
            updateCore,
+           updateLibJs,
+           updateLibCss,
            messageUpdate,
            reloadBrowsers
          )
@@ -105,6 +119,8 @@ exports.update = parallel( updateHtml,
                            updateSass,
                            updateModels,
                            updateFunctions,
+                           updateLibJs,
+                           updateLibCss,
                            updateCore,
                            messageUpdate
                           );
