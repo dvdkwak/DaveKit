@@ -115,7 +115,7 @@ function container(cb)
 // function to do in default
 
 // default to crop and compile all files
-exports.update = parallel( updateHtml,
+exports.compile = parallel( updateHtml,
                            updateSass,
                            updateModels,
                            updateFunctions,
