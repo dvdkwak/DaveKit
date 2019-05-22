@@ -9,10 +9,11 @@
   "author": "David Kwakernaak",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.5",
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-html-beautify": "^1.0.1",
+    "gulp-image": "^4.4.1",
     "gulp-sass": "^4.0.2",
     "gulp-serve": "^1.4.0",
     "gulp-uglify": "^3.0.2",

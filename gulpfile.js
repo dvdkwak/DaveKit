@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const uglifyEs = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
 const htmlbeautify = require('gulp-html-beautify');
+const image = require('gulp-image');
 
 // Static Server
 function gulpServer(cb)
@@ -72,6 +73,13 @@ function updateLibCss()
     .pipe(dest('app/lib'));
 }
 
+function updateAssets()
+{
+    return src('./src/assets/**/*.{png, jpg, jpeg, gif, svg}')
+        .pipe(image())
+        .pipe(dest('app/src/assets'));
+}
+
 // reloadBrowsers to reload all connected browsers
 function reloadBrowsers(cb)
 {
@@ -122,6 +130,7 @@ exports.compile = parallel( updateHtml,
                            updateLibJs,
                            updateLibCss,
                            updateCore,
+                           updateAssets,
                            messageUpdate
                           );
 exports.serve = gulpServer;

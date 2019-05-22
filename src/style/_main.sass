@@ -1,33 +1,52 @@
 body
-  background-color: $primary
+  background-color: $background
+  overflow: hidden
 
   h1
     color: white
-    font-family: 'ZCOOL QingKe HuangYou', cursive
+    font-family: $mainFont
     font-size: 64px
-    margin: 100px auto
+    margin: auto
     text-align: center
 
-  .triangle
-    position: absolute
-    width: 0
-    height: 0
-    bottom: -70px
-    left: -150px
-    border-left: 200px solid transparent
-    border-right: 200px solid transparent
-    border-bottom: 330px solid $secondary
+  .Taijitu
+    display: flex
+    align-items: center
+    margin: 20vh auto
+    width: $logoSize
+    height: $logoSize
+    border-radius: 50%
+    background: linear-gradient(black 50%, white 0)
+    animation: rotate 5000ms linear reverse infinite
 
-  .triangle_container
-    position: relative
-    height: 100px
-    width: 100px
-    margin: 200px auto
-    padding: 0
-    animation-name: rotate
-    animation-duration: 20s
-    animation-iteration-count: infinite
-    animation-timing-function: linear
+    &:before, &:after
+      flex: 1
+      height: 50%
+      border-radius: 50%
+      background: $black
+      content: ''
+
+    &:after
+      background: $white
+
+
+  .hidden_message
+    position: fixed
+    top: 10px
+    left: -100px
+    border-radius: 20px
+    border-top-left-radius: 0%
+    background: $white
+    transform: rotate(90deg)
+    box-shadow: rgba(0,0,0,0.4) 10px 10px 10px
+    animation: fold 1000ms ease-in-out forwards
+    animation-delay: 1000ms
+    transform-origin: left
+
+    p
+      font-family: $mainFont
+      font-size: 50px
+      padding: 0 20px
 
 
 
@@ -36,3 +55,12 @@ body
     transform: rotate(0deg)
   100%
     transform: rotate(360deg)
+
+
+@keyframes fold
+  0%
+    transform: rotate(90deg)
+    left: -100px
+  100%
+    transform: rotate(0deg)
+    left: 10px

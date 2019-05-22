@@ -1,1 +1,1 @@
-$(document).ready(function(){var e={type:Phaser.AUTO,height:600,width:800,physics:{gravity:{x:0},debug:!0},scenes:[World1]};new Phaser.Game(e)});
+$(document).ready(function(){});
