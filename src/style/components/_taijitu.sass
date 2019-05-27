@@ -1,0 +1,19 @@
+.Taijitu
+  display: flex
+  align-items: center
+  margin: 20vh auto
+  width: $logoSize
+  height: $logoSize
+  border-radius: 50%
+  background: linear-gradient(black 50%, white 0)
+  animation: rotate 5000ms linear reverse infinite
+
+  &:before, &:after
+    flex: 1
+    height: 50%
+    border-radius: 50%
+    background: $black
+    content: ''
+
+  &:after
+    background: $white

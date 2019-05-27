@@ -9,45 +9,6 @@ body
     margin: auto
     text-align: center
 
-  .Taijitu
-    display: flex
-    align-items: center
-    margin: 20vh auto
-    width: $logoSize
-    height: $logoSize
-    border-radius: 50%
-    background: linear-gradient(black 50%, white 0)
-    animation: rotate 5000ms linear reverse infinite
-
-    &:before, &:after
-      flex: 1
-      height: 50%
-      border-radius: 50%
-      background: $black
-      content: ''
-
-    &:after
-      background: $white
-
-
-  .hidden_message
-    position: fixed
-    top: 10px
-    left: -100px
-    border-radius: 20px
-    border-top-left-radius: 0%
-    background: $white
-    transform: rotate(90deg)
-    box-shadow: rgba(0,0,0,0.4) 10px 10px 10px
-    animation: fold 1000ms ease-in-out forwards
-    animation-delay: 1000ms
-    transform-origin: left
-
-    p
-      font-family: $mainFont
-      font-size: 50px
-      padding: 0 20px
-
 
 
 @keyframes rotate
@@ -61,6 +22,12 @@ body
   0%
     transform: rotate(90deg)
     left: -100px
+  80%
+    transform: rotate(-10deg)
+    left: 0px
+  95%
+    transform: rotate(10deg)
+    left: 5px
   100%
     transform: rotate(0deg)
     left: 10px
